@@ -1,0 +1,52 @@
+<%= form_with(model: jewel) do |form| %>
+  <% if jewel.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(jewel.errors.count, "error") %> prohibited this jewel from being saved:</h2>
+
+      <ul>
+        <% jewel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :material, style: "display: block" %>
+    <%= form.text_field :material %>
+  </div>
+
+  <div>
+    <%= form.label :type_of_stones, style: "display: block" %>
+    <%= form.text_field :type_of_stones %>
+  </div>
+
+  <div>
+    <%= form.label :number_of_stones, style: "display: block" %>
+    <%= form.number_field :number_of_stones %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :jeweler_id, style: "display: block" %>
+    <%= form.text_field :jeweler_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get "home/index"
   resources :jewelers
   resources :jewels
+  resources :stones
 end

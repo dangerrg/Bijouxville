@@ -10,5 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_04_135548) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "jewelers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jewels", force: :cascade do |t|
+    t.string "name"
+    t.string "material"
+    t.string "type_of_stones"
+    t.integer "number_of_stones"
+    t.text "description"
+    t.decimal "price", precision: 5, scale: 2
+    t.bigint "jeweler_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jeweler_id"], name: "index_jewels_on_jeweler_id"
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "name"
+    t.decimal "base_cost", precision: 5, scale: 2
+    t.bigint "jewel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jewel_id"], name: "index_materials_on_jewel_id"
+  end
+
+  create_table "stones", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 5, scale: 2
+    t.bigint "jewel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jewel_id"], name: "index_stones_on_jewel_id"
+  end
+
+  add_foreign_key "jewels", "jewelers"
+  add_foreign_key "materials", "jewels"
+  add_foreign_key "stones", "jewels"
 end

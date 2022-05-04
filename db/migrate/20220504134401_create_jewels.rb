@@ -6,7 +6,7 @@ class CreateJewels < ActiveRecord::Migration[7.0]
       t.string :type_of_stones
       t.integer :number_of_stones
       t.text :description
-      t.decimal :price, precision: 0, scale: 2
+      t.decimal :price, precision: 5, scale: 2
       t.references :jeweler, null: false, foreign_key: true
 
       t.timestamps

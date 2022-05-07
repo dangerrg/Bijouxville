@@ -27,3 +27,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+config/.smbdeleteAAA43aa4f
+db/.smbdeleteAAA43d2ea
+app/models/.smbdeleteAAA43ac84
+config/.smbdeleteAAA43b830

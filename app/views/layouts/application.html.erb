@@ -6,10 +6,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag "https://cdn.simplecss.org/simple.min.css" %>
     <%= stylesheet_link_tag "application" %>
   </head>
 
   <body>
+    <nav>
+      <%= link_to "Home", root_path %> |
+      <%= link_to "Jewelers", jewelers_path %>  (<%= @number_of_jewelers %>)|
+      <%= link_to "Types of jewelry", jewels_path %>  (<%= @number_of_jewels %>)|
+      <%= link_to "Types of materials", materials_path %>  (<%= @number_of_materials %>)|
+      <%= link_to "Types of gemstone", stones_path %>  (<%= @number_of_stones %>)|
+    </nav>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Stones</h1>
+
+<div id="stones">
+  <% @stones.each do |stone| %>
+    <%= render stone %>
+    <p>
+      <%= link_to "Show this stone", stone %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New stone", new_stone_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  material: MyString
+  type_of_stones: MyString
+  number_of_stones: 1
+  description: MyText
+  price: 9.99
+  jeweler: one
+
+two:
+  name: MyString
+  material: MyString
+  type_of_stones: MyString
+  number_of_stones: 1
+  description: MyText
+  price: 9.99
+  jeweler: two

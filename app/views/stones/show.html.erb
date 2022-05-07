@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @stone %>
+
+<div>
+  <%= link_to "Edit this stone", edit_stone_path(@stone) %> |
+  <%= link_to "Back to stones", stones_path %>
+
+  <%= button_to "Destroy this stone", @stone, method: :delete %>
+</div>

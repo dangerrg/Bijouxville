@@ -11,7 +11,9 @@
 
   <p>
     <strong>Jewel:</strong>
-    <%= stone.jewel.name %>
+    <% unless @jewel.nil? %>
+      <%= stone.jewel.name %>
+    <% end %>
   </p>
 
 </div>

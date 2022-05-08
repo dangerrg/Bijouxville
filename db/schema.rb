@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_135548) do
   create_table "materials", force: :cascade do |t|
     t.string "name"
     t.decimal "base_cost", precision: 5, scale: 2
-    t.bigint "jewel_id", null: false
+    t.bigint "jewel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jewel_id"], name: "index_materials_on_jewel_id"
@@ -46,13 +46,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_135548) do
   create_table "stones", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 5, scale: 2
-    t.bigint "jewel_id", null: false
+    t.bigint "jewel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jewel_id"], name: "index_stones_on_jewel_id"
   end
 
   add_foreign_key "jewels", "jewelers"
-  add_foreign_key "materials", "jewels"
-  add_foreign_key "stones", "jewels"
 end

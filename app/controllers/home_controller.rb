@@ -15,5 +15,10 @@ class HomeController < ApplicationController
     # Display total number_of_stones
     @stones = Stone.all
     @number_of_stones = @stones.length
+
+    @type_of_gold = Jewel.where('material LIKE ?','Gold')
+    @type_of_silver = Jewel.where('material LIKE ?','Silver')
+    @type_of_iron = Jewel.where('material LIKE ?','Iron')
+    @type_of_platinum = Jewel.where('material LIKE ?','Platinium')
   end
 end

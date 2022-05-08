@@ -14,9 +14,9 @@
     <nav>
       <%= link_to "Home", root_path %> |
       <%= link_to "Jewelers", jewelers_path %>  (<%= @number_of_jewelers %>)|
-      <%= link_to "Types of jewelry", jewels_path %>  (<%= @number_of_jewels %>)|
-      <%= link_to "Types of materials", materials_path %>  (<%= @number_of_materials %>)|
-      <%= link_to "Types of gemstone", stones_path %>  (<%= @number_of_stones %>)|
+      <%= link_to "Jewelry", jewels_path %>  (<%= @number_of_jewels %>)|
+      <%= link_to "Materials", materials_path %>  (<%= @number_of_materials %>)|
+      <%= link_to "Stones", stones_path %>  (<%= @number_of_stones %>)|
     </nav>
     <%= yield %>
   </body>

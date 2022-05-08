@@ -1,3 +1,30 @@
 <h1>Welcome to Bijouxville</h1>
   <h2>Dear costumer we wish a great experience with our app.</h2>
   <p>Feel free can explore our beautiful jewelry collection. Have fun shopping 🤩💎💍💠‼️</p>
+
+
+<!-- Total number_of_jewelers -->
+<strong>Total of jewelers: <span style="color:green"><%= @number_of_jewelers %></span></strong>
+<strong>Total of jewels: <span style="color:green"><%= @number_of_jewels %></span></strong>
+<!-- Total number_of_jewels and type_of_jewelry -->
+<details>
+  <summary class="fs-5 mb-1">
+    <strong>Types of jewelry: <span style="color:green"><%= @number_of_materials %></span></strong>
+  </summary>
+  <div id="jewels_type">
+    <div>
+      <code><%= render @materials %></code>
+    </div>
+  </div>
+</details>
+<!-- Total number_of_jewelers and type_of_gemstones -->
+<details>
+  <summary class="fs-5 mb-1">
+    <strong>Types of gemstones: <span style="color:green"><%= @number_of_stones %></span></strong>
+  </summary>
+  <div id="stones_type">
+    <div>
+      <code><%= render @stones %></code>
+    </div>
+  </div>
+</details>

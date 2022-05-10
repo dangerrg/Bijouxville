@@ -41,9 +41,15 @@ class JewelsController < ApplicationController
 
   # DELETE /jewels/1
   def destroy
-    @jewel.destroy
-    redirect_to jewels_url, notice: "Jewel was successfully destroyed."
-  end
+    if JewelDeletor.present?
+      # redirect_to @jewel, notice: "success"
+      JewelDeletor.borra_jewel(@jewel)
+      # else
+      #
+      # @jewel.destroy
+      # redirect_to jewels_url, notice: "Jewel was successfully destroyed."
+    end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.

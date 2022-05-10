@@ -22,12 +22,15 @@ class JewelersController < ApplicationController
   # POST /jewelers
   def create
     @jeweler = Jeweler.new(jeweler_params)
+    # call service_object
+    jeweler_creator = JewelerCreator.call(@jeweler)
 
-    if @jeweler.save
-      redirect_to @jeweler, notice: "Jeweler was successfully created."
+    if jeweler_creator
+       redirect_to @jeweler, notice: "Jeweler was successfully created."
     else
-      render :new, status: :unprocessable_entity
+       render :new
     end
+
   end
 
   # PATCH/PUT /jewelers/1

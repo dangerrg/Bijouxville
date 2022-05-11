@@ -10,12 +10,9 @@ class JewelerCreator < ApplicationService
   end
 
   def create_jeweler
-    if @jeweler.save
-      true
-    else
-      @jeweler.errors.add(:base, "Could not create jeweler")
-      false
-    end
+    return OpenStruct.new(success?: false, jeweler: nil, errors: @jeweler.errors) unless @jeweler.save
+
+    OpenStruct.new(success?: true, jeweler: @jeweler, errors: nil)
   end
 
   private

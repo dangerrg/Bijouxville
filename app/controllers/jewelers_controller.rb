@@ -22,13 +22,13 @@ class JewelersController < ApplicationController
   # POST /jewelers
   def create
     @jeweler = Jeweler.new(jeweler_params)
-    # call service_object
-    jeweler_creator = JewelerCreator.call(@jeweler)
+    # call service_object JewelerCreator with the instance object
+    result = JewelerCreator.call(@jeweler)
 
-    if jeweler_creator
+    if result.success?
        redirect_to @jeweler, notice: "Jeweler was successfully created."
     else
-       render :new
+       render :new, error: result.errors
     end
 
   end

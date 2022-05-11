@@ -22,11 +22,12 @@ class JewelsController < ApplicationController
   # POST /jewels
   def create
     @jewel = Jewel.new(jewel_params)
+    result = JewelHandler::JewelCreator.call(@jewel)
 
-    if @jewel.save
+    if result.success?
       redirect_to @jewel, notice: "Jewel was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render :new, error: result.errors
     end
   end
 
@@ -41,15 +42,10 @@ class JewelsController < ApplicationController
 
   # DELETE /jewels/1
   def destroy
-    if JewelDeletor.present?
-      # redirect_to @jewel, notice: "success"
-      JewelDeletor.borra_jewel(@jewel)
-      # else
-      #
-      # @jewel.destroy
-      # redirect_to jewels_url, notice: "Jewel was successfully destroyed."
-    end
-    end
+    result = JewelHandler::JewelDeletor.call(@jewel)
+    redirect_to jewels_url, notice: "Jewel was successfully destroyed."
+    # end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

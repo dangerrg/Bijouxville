@@ -4,7 +4,7 @@ class Jewel < ApplicationRecord
   has_many :materials, dependent: :destroy
 
   validates :name, presence: true
-  validates :number_of_stones, presence: true
+  validates :number_of_stones, presence: true, :numericality => {:greater_than => 0}
   validates :type_of_stones, presence: true
   validates :material, presence: true
   validates :jeweler_id, presence: true

@@ -5,20 +5,28 @@
 
 <!-- Total number_of_jewelers -->
 <strong>Total of jewelers: <span style="color:green"><%= @number_of_jewelers %></span></strong>
-<strong>Total of jewels: <span style="color:green"><%= @number_of_jewels %></span></strong>
 <!-- Total number_of_jewels and type_of_jewelry -->
-<details>
+<details open>
   <summary class="fs-5 mb-1">
-    <strong>Types of jewelry: <span style="color:green"><%= @number_of_materials %></span></strong>
+    <strong>Types of jewelry: <span style="color:green"><%= @number_of_materials %></span><br>
+    Total of jewels per type: <span style="color:green"><%= @number_of_jewels %></span></strong>
   </summary>
   <div id="jewels_type">
     <div>
-      <code><%= render @materials %></code>
+      <ul>
+        <strong>
+          <li><code>Gold: <span style="color:green"><%= @type_of_gold.length %></span></code></li>
+          <li><code>Silver: <span style="color:green"><%= @type_of_silver.length %></span></code></li>
+          <li><code>Iron: <span style="color:green"><%= @type_of_iron.length %></span></code></li>
+          <li><code>Platinium: <span style="color:green"><%= @type_of_platinum.length %></span></code></li>
+          <li><code>White Gold: <span style="color:green"><%= @type_of_white_gold.length %></span></code></li>
+        </strong>
+      </ul>
     </div>
   </div>
 </details>
 <!-- Total number_of_jewelers and type_of_gemstones -->
-<details>
+<details open>
   <summary class="fs-5 mb-1">
     <strong>Types of gemstones: <span style="color:green"><%= @number_of_stones %></span></strong>
   </summary>

@@ -20,5 +20,6 @@ class HomeController < ApplicationController
     @type_of_silver = Jewel.where('material LIKE ?','Silver')
     @type_of_iron = Jewel.where('material LIKE ?','Iron')
     @type_of_platinum = Jewel.where('material LIKE ?','Platinium')
+    @type_of_white_gold = Jewel.where('material LIKE ?','White Gold')
   end
 end

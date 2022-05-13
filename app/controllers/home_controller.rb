@@ -8,13 +8,13 @@ class HomeController < ApplicationController
     @jewels = Jewel.all
     @number_of_jewels = @jewels.length
 
-    # Display total number_of_materials
+    # Display types number_of_materials
     @materials = Material.all
-    @number_of_materials = @materials.length
+    @types_of_materials = @materials.length
 
-    # Display total number_of_stones
+    # Display types number_of_stones
     @stones = Stone.all
-    @number_of_stones = @stones.length
+    @types_of_stones = @stones.length
 
     @type_of_gold = Jewel.type_of_gold
     @type_of_silver = Jewel.type_of_silver
@@ -30,8 +30,9 @@ class HomeController < ApplicationController
 
     @total_sum_per_type = (@type_of_gold + @type_of_silver + @type_of_iron + @type_of_platinum + @type_of_white_gold).length
     @total_sum_per_stone = (@with_of_safire + @with_of_emerald + @with_of_diamond + @with_of_black_diamond + @with_of_ruby).length
-    @jewels_total_sum = (@total_sum_per_type + @total_sum_per_stone)
+    @jewels_total_sum_per_type_and_stone = (@total_sum_per_type + @total_sum_per_stone)
+    @jewels_bijouxville = @number_of_jewels
   end
 
-  
+
 end

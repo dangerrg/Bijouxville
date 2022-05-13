@@ -9,6 +9,12 @@ class Jewel < ApplicationRecord
   validates :material, presence: true
   validates :jeweler_id, presence: true
 
+  scope :type_of_gold, -> { where(material: "Gold") }
+  scope :type_of_silver, -> { where(material: "Silver") }
+  scope :type_of_iron, -> { where(material: "Iron") }
+  scope :type_of_platinum, -> { where(material: "Platinium") }
+  scope :type_of_white_gold, -> { where(material: "White Gold") }
+
   enum :description, { Necklaces: "Necklaces", Pendants: "Pendants", Earrings: "Earrings", Bracelets: "Bracelets", Rings: "Rings", Brooches: "Brooches", Charms: "Charms", Wedding_Bands: "Wedding_Bands" }
 
   def total_price
@@ -17,4 +23,11 @@ class Jewel < ApplicationRecord
 
     self.price = material_by_cost.sum(&:base_cost) + (stone_by_price.sum(&:price) * number_of_stones)
   end
+
+  # def jewels_total_sum
+  #   self.jewels_total_sum = sum(&:type_of_gold) + sum(&:type_of_silver) + sum(&:type_of_iron) + sum(&:type_of_platinum) + sum(&:type_of_white_gold)
+  #  end
 end
+
+
+# Material.joins(:jewel).where(jewels: { id: Jewel.type_of_gold.pluck(:id)}).size

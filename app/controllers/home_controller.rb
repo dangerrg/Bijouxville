@@ -16,10 +16,13 @@ class HomeController < ApplicationController
     @stones = Stone.all
     @number_of_stones = @stones.length
 
-    @type_of_gold = Jewel.where('material LIKE ?','Gold')
-    @type_of_silver = Jewel.where('material LIKE ?','Silver')
-    @type_of_iron = Jewel.where('material LIKE ?','Iron')
-    @type_of_platinum = Jewel.where('material LIKE ?','Platinium')
-    @type_of_white_gold = Jewel.where('material LIKE ?','White Gold')
+    @type_of_gold = Jewel.type_of_gold
+    @type_of_silver = Jewel.type_of_silver
+    @type_of_iron = Jewel.type_of_iron
+    @type_of_platinum = Jewel.type_of_platinum
+    @type_of_white_gold = Jewel.type_of_white_gold
+
+    @jewels_total_sum = @type_of_gold + @type_of_silver + @type_of_iron + @type_of_platinum + @type_of_white_gold
+
   end
 end

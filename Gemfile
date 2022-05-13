@@ -42,3 +42,6 @@ group :development do
 end
 
 gem "ffaker"
+
+# Install Devise
+gem 'devise', github: 'heartcombo/devise', branch: 'main'

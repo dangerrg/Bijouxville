@@ -56,6 +56,6 @@ class JewelersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def jeweler_params
-      params.require(:jeweler).permit(:name, :email)
+      params.require(:jeweler).permit(:name, :email, :password, :password_confirmation)
     end
 end

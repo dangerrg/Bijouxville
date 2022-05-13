@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Jeweler, type: :model do
 
-  subject {
-    described_class.new(name: "New Jeweler",
-                        email: "test@example.com")
-  }
+  subject { jeweler = build(:jeweler) }
 
   it "is valid with valid attributes" do
     expect(subject).to be_valid
@@ -18,7 +15,7 @@ RSpec.describe Jeweler, type: :model do
 
   it "is valid without a email" do
     subject.email = nil
-    expect(subject).to be_valid
+    expect(subject).to_not be_valid
   end
 
 end

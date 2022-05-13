@@ -34,6 +34,10 @@ group :test do
 
   # This gem helps Capybara interact with the web browser.
   gem 'webdrivers'
+
+  # It allows you to write tests in Gherkin and run them through your RSpec environment.
+  # Basically you can write cucumber features in RSpec.
+  gem "turnip"
 end
 
 group :development do

@@ -1,12 +1,7 @@
 <div id="<%= dom_id jeweler %>">
-  <p>
-    <strong>Name:</strong>
-    <%= jeweler.name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= jeweler.email %>
-  </p>
-
+  <td><%= jeweler.name %></td>
+  <td><%= jeweler.email %></td>
+  <td><%= link_to 'Show', jeweler %></td>
+  <td><%= link_to 'Edit', edit_jeweler_path(jeweler) %></td>
+  <td><%= link_to 'Destroy', jeweler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </div>

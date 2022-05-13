@@ -1,10 +1,41 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @jewel %>
+<p>
+  <strong>Name:</strong>
+  <%= @jewel.name %>
+</p>
+
+<p>
+  <strong>Materials:</strong>
+  <%= @jewel.material %>
+</p>
+
+<p>
+  <strong>Stones:</strong>
+  <%= @jewel.type_of_stones %>
+</p>
+
+<p>
+  <strong>Number of stones:</strong>
+  <%= @jewel.number_of_stones %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @jewel.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @jewel.price %>
+</p>
+
+<p>
+  <strong>Jeweler:</strong>
+  <%= @jewel.jeweler_id %>
+</p>
 
 <div>
-  <%= link_to "Edit this jewel", edit_jewel_path(@jewel) %> |
   <%= link_to "Back to jewels", jewels_path %>
-
   <%= button_to "Destroy this jewel", @jewel, method: :delete %>
 </div>

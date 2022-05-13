@@ -1,10 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @jeweler %>
+<p>
+  <strong>Id:</strong>
+  <%= @jeweler.id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @jeweler.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @jeweler.email %>
+</p>
 
 <div>
-  <%= link_to "Edit this jeweler", edit_jeweler_path(@jeweler) %> |
   <%= link_to "Back to jewelers", jewelers_path %>
-
   <%= button_to "Destroy this jeweler", @jeweler, method: :delete %>
 </div>

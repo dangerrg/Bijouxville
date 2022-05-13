@@ -1,9 +1,7 @@
 
-  jeweler1 = Jeweler.create(name: "jeweler1", email: "jeweler1@bijouxville.ch")
-  jeweler2 = Jeweler.create(name: "jeweler2", email: "jeweler2@bijouxville.ch")
-  jeweler3 = Jeweler.create(name: "jeweler3", email: "jeweler3@bijouxville.ch")
-  jeweler4 = Jeweler.create(name: "jeweler4", email: "jeweler4@bijouxville.ch")
-  jeweler5 = Jeweler.create(name: "jeweler5", email: "jeweler5@bijouxville.ch")
+  5.times do |n|
+    jeweler1 = FactoryBot.create(:jeweler, email: "jeweler#{n + 1}@bijouxville.ch")
+  end
 
   jewel1 = Jewel.create(name: "Lux Safire",
                         jeweler_id: 1,

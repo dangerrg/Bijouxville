@@ -22,6 +22,7 @@ class JewelsController < ApplicationController
   # POST /jewels
   def create
     @jewel = Jewel.new(jewel_params)
+    @jewel.jeweler_id = current_jeweler.id
     result = JewelHandler::JewelCreator.call(@jewel)
 
     if result.success?

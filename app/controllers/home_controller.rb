@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  skip_before_action :authenticate_jeweler!
+  
   def index
     # Display total number_of_jewelers
     @jewelers = Jeweler.all

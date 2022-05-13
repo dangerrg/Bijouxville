@@ -38,7 +38,7 @@
     <div id="sum_bijouxville">
       <div>
         <strong>
-          <code>All jewels: <span style="color:green"><%= @jewels_total_sum.length %></span></code>
+          <code>All jewels: <span style="color:green"><%= @jewels_total_sum %></span></code>
         </strong>
       </div>
     </div>
@@ -46,10 +46,19 @@
 <!-- Total sum of bijouxville (all jewels from all jewelers). -->
   <details open>
     <summary class="fs-5 mb-1">
-      <strong>Jewels total sum per type and per stone: </strong>
+      <strong>Jewels total sum per <span style="color:blue"><em>type: </em></span><%= @total_sum_per_type %></strong>
     </summary>
     <div id="jewels_type">
       <%= render partial: "jewels_per_type" %>
+    </div>
+  </details>
+
+  <details open>
+    <summary class="fs-5 mb-1">
+      <strong>Jewels total sum per <span style="color:blue"><em>stone: </em></span><%= @total_sum_per_stone %></strong>
+    </summary>
+    <div id="jewels_type">
+      <%= render partial: "jewels_per_stone" %>
     </div>
   </details>
 

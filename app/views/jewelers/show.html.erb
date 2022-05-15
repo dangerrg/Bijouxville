@@ -13,6 +13,10 @@
   <strong>Email:</strong>
   <%= @jeweler.email %>
 </p>
+<p>
+  <strong>Role:</strong>
+  <%= @jeweler.role unless @jeweler.role.nil? %>
+</p>
 
 <div>
   <%= link_to "Back to jewelers", jewelers_path %>

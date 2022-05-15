@@ -8,6 +8,7 @@ class Jewel < ApplicationRecord
   validates :type_of_stones, presence: true
   validates :material, presence: true
   validates :jeweler_id, presence: true
+  validates :description, presence: true
 
   scope :type_of_gold, -> { where(material: "Gold") }
   scope :type_of_silver, -> { where(material: "Silver") }

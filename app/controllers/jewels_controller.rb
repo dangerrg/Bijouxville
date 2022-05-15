@@ -1,5 +1,6 @@
 class JewelsController < ApplicationController
   before_action :set_jewel, only: %i[ show edit update destroy ]
+  before_action :ensure_admin, only: %i[ destroy ]
 
   # GET /jewels
   def index

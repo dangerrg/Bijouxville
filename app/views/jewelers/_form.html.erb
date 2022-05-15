@@ -25,6 +25,12 @@
     <%= form.label :password %><br />
     <%= form.password_field :password %>
   </div>
+  <% if current_jeweler.role == "admin" %>
+    <div class="field">
+      <%= form.label :role %><br />
+      <%= form.select :role, Jeweler.roles.keys %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.submit %>

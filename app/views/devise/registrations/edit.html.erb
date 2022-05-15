@@ -13,6 +13,13 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <% if current_jeweler.role == "admin" %>
+    <div class="field">
+      <%= f.label :role %><br />
+      <%= f.select :role, Jeweler.roles.keys %>
+    </div>
+  <% end %>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

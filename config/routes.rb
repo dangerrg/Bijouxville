@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :jewelers
   scope '/admin' do
-   resources :jewelers do
-     resources :jewels
-   end
+   resources :jewelers
+   resources :jewels
    resources :stones
    resources :materials
  end

@@ -86,22 +86,22 @@ attributes      =>    :name, :base_cost
 ## List of relevant gems
 
 # for testing
-gem `'rspec-rails'`
-gem `'capybara'`
-gem `"turnip"`
+* gem `'rspec-rails'`
+* gem `'capybara'`
+* gem `"turnip"`
 
 # for populating data
-gem `"ffaker"` (was not used)
-gem `"factory_bot_rails"`
+* gem `"ffaker"` (was not used)
+* gem `"factory_bot_rails"`
 
 # For authorization & authentication
-gem `'devise'`
-gem `"can can"`
+* gem `'devise'`
+* gem `"can can"`
 
 # for database (All environments)
-gem `pg` - postgresql
+* gem `pg` - postgresql
 
 ## Deployment
-Heroku
+* Heroku
 
 ## Challenges

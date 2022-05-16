@@ -20,10 +20,18 @@
     <%= form.label :material, style: "display: block" %>
     <%= form.collection_select :material, Material.all, :name, :name, { prompt: true } %>
   </div>
+  <div>
+    <%= form.label :material_base_cost, style: "display: block" %>
+    <%= form.collection_select :material_base_cost, Material.all, :base_cost, :base_cost, { prompt: true } %>
+  </div>
 
   <div>
     <%= form.label :type_of_stones, style: "display: block" %>
     <%= form.collection_select :type_of_stones, Stone.all, :name, :name, { prompt: true } %>
+  </div>
+  <div>
+    <%= form.label :price_of_stone, style: "display: block" %>
+    <%= form.collection_select :price_of_stone, Stone.all, :price, :price, { prompt: true } %>
   </div>
 
   <div>

@@ -13,11 +13,24 @@
   <body>
     <nav>
       <%= link_to "Home", root_path %> |
-      <%= link_to "Jewelers", jewelers_path %>  (<%= @number_of_jewelers %>)|
-      <%= link_to "Types of jewelry", jewels_path %>  (<%= @number_of_jewels %>)|
-      <%= link_to "Types of materials", materials_path %>  (<%= @number_of_materials %>)|
-      <%= link_to "Types of gemstone", stones_path %>  (<%= @number_of_stones %>)|
+      <%= link_to "Jewelers", jewelers_path %> |
+      <%= link_to "Jewels", jewels_path %> |
+      <%= link_to "Materials", materials_path %> |
+      <%= link_to "Stones", stones_path %> |
+      <% if jeweler_signed_in? %>
+        <p>Signed in as <%= current_jeweler.email %></p>
+        <%= link_to "Edit profile", edit_jeweler_registration_path %>
+        <%= button_to "Sign out", destroy_jeweler_session_path, method: :delete, data: { turbo: "false" } %>
+      <% else %>
+        <%= link_to "Sign up", new_jeweler_registration_path %> or
+        <%= link_to "sign in", new_jeweler_session_path %>
+      <% end %>
     </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+    
   </body>
 </html>

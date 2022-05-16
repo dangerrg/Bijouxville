@@ -1,5 +1,6 @@
 class JewelsController < ApplicationController
   before_action :set_jewel, only: %i[ show edit update destroy ]
+  before_action :ensure_admin, only: %i[ destroy ]
 
   # GET /jewels
   def index
@@ -22,11 +23,13 @@ class JewelsController < ApplicationController
   # POST /jewels
   def create
     @jewel = Jewel.new(jewel_params)
+    @jewel.jeweler_id = current_jeweler.id
+    result = JewelHandler::JewelCreator.call(@jewel)
 
-    if @jewel.save
+    if result.success?
       redirect_to @jewel, notice: "Jewel was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      render :new, error: result.errors
     end
   end
 
@@ -41,8 +44,9 @@ class JewelsController < ApplicationController
 
   # DELETE /jewels/1
   def destroy
-    @jewel.destroy
+    result = JewelHandler::JewelDeletor.call(@jewel)
     redirect_to jewels_url, notice: "Jewel was successfully destroyed."
+    # end
   end
 
   private
@@ -53,6 +57,6 @@ class JewelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def jewel_params
-      params.require(:jewel).permit(:name, :material, :type_of_stones, :number_of_stones, :description, :price, :jeweler_id)
+      params.require(:jewel).permit(:name, :material, :type_of_stones, :number_of_stones, :description, :price, :jeweler_id, :material_base_cost, :price_of_stone)
     end
 end

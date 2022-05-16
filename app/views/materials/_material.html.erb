@@ -1,17 +1,24 @@
 <div id="<%= dom_id material %>">
-  <p>
-    <strong>Name:</strong>
-    <%= material.name %>
-  </p>
+  <% if current_page?(root_path) %>
+    <p>
+      <%= material.name %>
+    </p>
+  <% else %>
+    <p>
+      <strong>Name:</strong>
+      <%= material.name %>
+    </p>
 
-  <p>
-    <strong>Base cost:</strong>
-    <%= material.base_cost %>
-  </p>
+    <p>
+      <strong>Base cost:</strong>
+      <%= material.base_cost %>
+    </p>
 
-  <p>
-    <strong>Jewel:</strong>
-    <%= material.jewel.name %>
-  </p>
-
+    <p>
+      <strong>Jewel:</strong>
+      <% unless @jewel.nil? %>
+        <%= material.jewel.name %>
+      <% end %>
+    </p>
+  <% end %>
 </div>

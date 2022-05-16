@@ -16,10 +16,21 @@
     <%= form.text_field :name %>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+  <div class="field">
+    <%= form.label :password %><br />
+    <%= form.password_field :password %>
+  </div>
+  <% if current_jeweler.role == "admin" %>
+    <div class="field">
+      <%= form.label :role %><br />
+      <%= form.select :role, Jeweler.roles.keys %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.submit %>

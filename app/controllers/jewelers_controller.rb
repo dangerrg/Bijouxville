@@ -1,5 +1,6 @@
 class JewelersController < ApplicationController
   before_action :set_jeweler, only: %i[ show edit update destroy ]
+  # before_action :ensure_admin, only: %i[ destroy ]
 
   # GET /jewelers
   def index
@@ -22,12 +23,15 @@ class JewelersController < ApplicationController
   # POST /jewelers
   def create
     @jeweler = Jeweler.new(jeweler_params)
+    # call service_object JewelerCreator with the instance object
+    result = JewelerCreator.call(@jeweler)
 
-    if @jeweler.save
-      redirect_to @jeweler, notice: "Jeweler was successfully created."
+    if result.success?
+       redirect_to @jeweler, notice: "Jeweler was successfully created."
     else
-      render :new, status: :unprocessable_entity
+       render :new, error: result.errors
     end
+
   end
 
   # PATCH/PUT /jewelers/1
@@ -47,12 +51,13 @@ class JewelersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
     def set_jeweler
       @jeweler = Jeweler.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def jeweler_params
-      params.require(:jeweler).permit(:name, :email)
+      params.require(:jeweler).permit(:name, :email, :password, :password_confirmation, :role)
     end
 end

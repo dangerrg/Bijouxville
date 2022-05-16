@@ -2,13 +2,24 @@
 
 <h1>Jewelers</h1>
 
-<div id="jewelers">
-  <% @jewelers.each do |jeweler| %>
-    <%= render jeweler %>
-    <p>
-      <%= link_to "Show this jeweler", jeweler %>
-    </p>
-  <% end %>
-</div>
-
 <%= link_to "New jeweler", new_jeweler_path %>
+
+<div id="jewelers">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @jewelers.each do |jeweler| %>
+        <tr>
+          <%= render jeweler %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

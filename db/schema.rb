@@ -10,15 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_04_135548) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_15_195025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "jewelers", force: :cascade do |t|
     t.string "name"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "role"
+    t.index ["email"], name: "index_jewelers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_jewelers_on_reset_password_token", unique: true
   end
 
   create_table "jewels", force: :cascade do |t|
@@ -31,13 +38,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_135548) do
     t.bigint "jeweler_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "material_base_cost", precision: 5, scale: 2
+    t.decimal "price_of_stone", precision: 5, scale: 2
     t.index ["jeweler_id"], name: "index_jewels_on_jeweler_id"
   end
 
   create_table "materials", force: :cascade do |t|
     t.string "name"
     t.decimal "base_cost", precision: 5, scale: 2
-    t.bigint "jewel_id", null: false
+    t.bigint "jewel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jewel_id"], name: "index_materials_on_jewel_id"
@@ -46,13 +55,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_135548) do
   create_table "stones", force: :cascade do |t|
     t.string "name"
     t.decimal "price", precision: 5, scale: 2
-    t.bigint "jewel_id", null: false
+    t.bigint "jewel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jewel_id"], name: "index_stones_on_jewel_id"
   end
 
   add_foreign_key "jewels", "jewelers"
-  add_foreign_key "materials", "jewels"
-  add_foreign_key "stones", "jewels"
 end

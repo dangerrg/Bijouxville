@@ -1,37 +1,12 @@
 <div id="<%= dom_id jewel %>">
-  <p>
-    <strong>Name:</strong>
-    <%= jewel.name %>
-  </p>
-
-  <p>
-    <strong>Material:</strong>
-    <%= jewel.material %>
-  </p>
-
-  <p>
-    <strong>Type of stones:</strong>
-    <%= jewel.type_of_stones %>
-  </p>
-
-  <p>
-    <strong>Number of stones:</strong>
-    <%= jewel.number_of_stones %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= jewel.description %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= jewel.total_price %>
-  </p>
-
-  <p>
-    <strong>Jeweler:</strong>
-    <%= jewel.jeweler.name %>
-  </p>
-
+  <td><%= jewel.name %></td>
+  <td><%= jewel.material %></td>
+  <td><%= jewel.type_of_stones %></td>
+  <td><%= jewel.number_of_stones %></td>
+  <td><%= jewel.description %></td>
+  <td><%= jewel.price %></td>
+  <td><%= jewel.jeweler_id %></td>
+  <td><%= link_to 'Show', jewel %></td>
+  <td><%= link_to 'Edit', edit_jewel_path(jewel) %></td>
+  <td><%= button_to "Destroy", jewel, method: :delete %></td>
 </div>

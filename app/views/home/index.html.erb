@@ -1,3 +1,65 @@
 <h1>Welcome to Bijouxville</h1>
   <h2>Dear costumer we wish a great experience with our app.</h2>
   <p>Feel free can explore our beautiful jewelry collection. Have fun shopping 🤩💎💍💠‼️</p>
+
+
+<!-- Total number_of_jewelers -->
+<strong>Total of jewelers: <span style="color:green"><%= @number_of_jewelers %></span></strong>
+<section>
+<!-- Total number_of_jewels and type_of_jewelry -->
+  <details open>
+    <summary class="fs-5 mb-1">
+      <strong>Types of jewels:</strong> (<em><%= @types_of_materials %> types</em>)
+    </summary>
+    <div id="jewels_type">
+      <code><%= render @materials %></code>
+    </div>
+  </details>
+  <!-- type_of_gemstones -->
+  <details open>
+    <summary class="fs-5 mb-1">
+      <strong>Types of precious stone:</strong> (<em><%= @types_of_stones %> types</em>)
+    </summary>
+    <div id="stones_type">
+      <div>
+        <code><%= render @stones %></code>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section id="finance_statistics">
+
+  <!-- Total sum of bijouxville (all jewels from all jewelers). -->
+  <details open>
+    <summary class="fs-5 mb-1">
+      <strong>Sum total of bijouxville: <%= @jewels_bijouxville %></strong>
+    </summary>
+    <div id="sum_bijouxville">
+      <div>
+        <strong>
+          <code>Jewels total sum per type and per stone: <span style="color:green"><%= @jewels_total_sum_per_type_and_stone %></span></code>
+        </strong>
+      </div>
+    </div>
+  </details>
+<!-- Total sum of bijouxville (all jewels from all jewelers). -->
+  <details open>
+    <summary class="fs-5 mb-1">
+      <strong>Jewels total sum per <span style="color:blue"><em>type: </em></span><%= @total_sum_per_type %></strong>
+    </summary>
+    <div id="jewels_type">
+      <%= render partial: "jewels_per_type" %>
+    </div>
+  </details>
+
+  <details open>
+    <summary class="fs-5 mb-1">
+      <strong>Jewels total sum per <span style="color:blue"><em>stone: </em></span><%= @total_sum_per_stone %></strong>
+    </summary>
+    <div id="jewels_type">
+      <%= render partial: "jewels_per_stone" %>
+    </div>
+  </details>
+
+</section>

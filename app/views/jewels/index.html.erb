@@ -1,14 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Jewels</h1>
-
-<div id="jewels">
-  <% @jewels.each do |jewel| %>
-    <%= render jewel %>
-    <p>
-      <%= link_to "Show this jewel", jewel %>
-    </p>
-  <% end %>
-</div>
+<h1>Jewels <%= @jewels.length %></h1>
 
 <%= link_to "New jewel", new_jewel_path %>
+
+<div id="jewels">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Materials</th>
+        <th>Stones</th>
+        <th>Number of stones</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Jeweler</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @jewels.each do |jewel| %>
+        <tr>
+          <%= render jewel %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

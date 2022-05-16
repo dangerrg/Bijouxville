@@ -1,17 +1,25 @@
 <div id="<%= dom_id stone %>">
-  <p>
-    <strong>Name:</strong>
-    <%= stone.name %>
-  </p>
+  <% if current_page?(root_path) %>
+    <p>
+      <%= stone.name %>
+    </p>
+  <% else %>
+    <p>
+      <strong>Name:</strong>
+      <%= stone.name %>
+    </p>
 
-  <p>
-    <strong>Price:</strong>
-    <%= stone.price %>
-  </p>
+    <p>
+      <strong>Price:</strong>
+      <%= stone.price %>
+    </p>
 
-  <p>
-    <strong>Jewel:</strong>
-    <%= stone.jewel.name %>
-  </p>
+    <p>
+      <strong>Jewel:</strong>
+      <% unless @jewel.nil? %>
+        <%= stone.jewel.name %>
+      <% end %>
+    </p>
+  <% end %>
 
 </div>

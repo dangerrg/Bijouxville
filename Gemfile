@@ -21,6 +21,23 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # required for seeding
+  gem "factory_bot_rails"
+end
+
+group :test do
+  # The RSpec testing framework
+  gem 'rspec-rails'
+
+  # Capybara, the library that allows us to interact with the browser using Ruby
+  gem 'capybara'
+
+  # This gem helps Capybara interact with the web browser.
+  gem 'webdrivers'
+
+  # It allows you to write tests in Gherkin and run them through your RSpec environment.
+  # Basically you can write cucumber features in RSpec.
+  gem "turnip"
 end
 
 group :development do
@@ -28,3 +45,7 @@ group :development do
   # gem "spring"
 end
 
+gem "ffaker"
+
+# Install Devise
+gem 'devise', github: 'heartcombo/devise', branch: 'main'

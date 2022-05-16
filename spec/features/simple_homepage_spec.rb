@@ -26,9 +26,11 @@ RSpec.describe 'Simple homepage navigation', type: :feature do
   end
 
   it "can navigate through resource links" do
-    jeweler1 = FactoryBot.build(:jeweler, name: "jeweler1",
-                        email: "jeweler1@example.com",
-                        password: "1234567890")
+    admin = FactoryBot.build(:jeweler, name: "admin",
+                       email: "admin@example.com",
+                       password: "password",
+                       password_confirmation: "password",
+                       role: "admin")
     jeweler2 = FactoryBot.build(:jeweler, name: "jeweler2",
                         email: "jeweler2@example.com",
                         password: "1234567890")
@@ -56,8 +58,8 @@ RSpec.describe 'Simple homepage navigation', type: :feature do
     visit root_path
     expect(page).to have_link('Jewelers')
     click_link "Jewelers"
-    fill_in "jeweler_email", with: "jeweler1@example.com"
-    fill_in "jeweler_password", with: "1234567890"
+    fill_in "jeweler_email", with: "admin@example.com"
+    fill_in "jeweler_password", with: "password"
     click_on "Log in"
     expect(page).to have_content('Signed in successfully')
     expect(page).to have_content('New jeweler')

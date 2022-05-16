@@ -35,7 +35,7 @@ RSpec.describe 'jewelry removal', type: :feature do
     fill_in "jeweler_password", with: "1234567890"
     click_on "Log in"
     expect(page).to have_content('Signed in successfully')
-    expect(page).to have_content('Sum total of bijouxville: 3')
+    expect(page).to have_content('Sum total of bijouxville: 30')
 
     visit jewels_path
     expect(page).to have_content('Jewels')
@@ -43,6 +43,6 @@ RSpec.describe 'jewelry removal', type: :feature do
     sleep 2
     expect(page).to have_content('Jewel was successfully destroyed')
     visit root_path
-    expect(page).to have_content('Sum total of bijouxville: 2')
+    expect(page).to have_content('Sum total of bijouxville: 29')
   end
 end

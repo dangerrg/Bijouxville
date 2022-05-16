@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_15_094545) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_15_195025) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_15_094545) do
     t.bigint "jeweler_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "material_base_cost", precision: 5, scale: 2
+    t.decimal "price_of_stone", precision: 5, scale: 2
     t.index ["jeweler_id"], name: "index_jewels_on_jeweler_id"
   end
 

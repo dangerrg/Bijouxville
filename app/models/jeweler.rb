@@ -6,6 +6,8 @@ class Jeweler < ApplicationRecord
   has_many :jewels, dependent: :destroy
 
   validates :name, presence: true
+  validates :role, inclusion: { in: %w(seller admin) }
+  validates :email, presence: true, uniqueness: true
   before_validation :downcase_email
 
   enum role: { seller: "seller", admin: "admin" }, _default: "seller"

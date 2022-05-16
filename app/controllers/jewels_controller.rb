@@ -57,6 +57,6 @@ class JewelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def jewel_params
-      params.require(:jewel).permit(:name, :material, :type_of_stones, :number_of_stones, :description, :price, :jeweler_id)
+      params.require(:jewel).permit(:name, :material, :type_of_stones, :number_of_stones, :description, :price, :jeweler_id, :material_base_cost, :price_of_stone)
     end
 end

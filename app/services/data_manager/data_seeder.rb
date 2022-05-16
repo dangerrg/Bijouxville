@@ -35,42 +35,54 @@ module DataManager
                                 jeweler_id: jeweler1,
                                 jeweler: jeweler1,
                                 material: "White Gold",
+                                material_base_cost: 499.50,
                                 type_of_stones: "Safire",
+                                price_of_stone: 9.99,
                                 number_of_stones: 2)
 
-        jewel1 = Jewel.create(name: "Jewel #{n}",
+        jewel1 = FactoryBot.create(:jewel,name: "Jewel #{n}",
                               jeweler_id: jeweler1,
                               jeweler: jeweler1,
                               material: "Gold",
+                              material_base_cost: 99.50,
                               type_of_stones: "Diamond",
+                              price_of_stone: 29.99,
                               number_of_stones: 2)
 
-        jewel2 = Jewel.create(name: "Lux Emerald #{n}",
+        jewel2 = FactoryBot.create(:jewel,name: "Lux Emerald #{n}",
                               jeweler_id: jeweler1,
                               jeweler: jeweler1,
                               material: "Silver",
+                              material_base_cost: 99.50,
                               type_of_stones: "Emerald",
+                              price_of_stone: 29.99,
                               number_of_stones: 2)
 
-        jewel3 = Jewel.create(name: "Lux Diamond #{n}",
+        jewel3 = FactoryBot.create(:jewel,name: "Lux Diamond #{n}",
                               jeweler_id: jeweler1,
                               jeweler: jeweler1,
                               material: "Iron",
+                              material_base_cost: 299.50,
                               type_of_stones: "Diamond",
+                              price_of_stone: 29.99,
                               number_of_stones: 3)
 
-        jewel4 = Jewel.create(name: "Lux Black Diamond #{n}",
+        jewel4 = FactoryBot.create(:jewel,name: "Lux Black Diamond #{n}",
                               jeweler_id: jeweler1,
                               jeweler: jeweler1,
                               material: "Platinium",
+                              material_base_cost: 399.50,
                               type_of_stones: "Black Diamond",
+                              price_of_stone: 39.99,
                               number_of_stones: 4)
 
-        jewel5 = Jewel.create(name: "Lux Ruby #{n}",
+        jewel5 = FactoryBot.create(:jewel,name: "Lux Ruby #{n}",
                               jeweler_id: jeweler1,
                               jeweler: jeweler1,
                               material: "White Gold",
+                              material_base_cost: 499.50,
                               type_of_stones: "Ruby",
+                              price_of_stone: 49.99,
                               number_of_stones: 5)
       end
 

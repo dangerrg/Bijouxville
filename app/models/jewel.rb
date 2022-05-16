@@ -24,10 +24,10 @@ class Jewel < ApplicationRecord
 
   enum :description, { Necklaces: "Necklaces", Pendants: "Pendants", Earrings: "Earrings", Bracelets: "Bracelets", Rings: "Rings", Brooches: "Brooches", Charms: "Charms", Wedding_Bands: "Wedding_Bands" }
 
-  def total_price
-    material_by_cost = Material.find(material_ids)
-    stone_by_price = Stone.find(stone_ids)
+  def price
+    material_base_cost = 9.99 unless self.material_base_cost.present?
+    price_of_stone = 19.99 unless self.price_of_stone.present?
 
-    self.price = material_by_cost.sum(&:base_cost) + (stone_by_price.sum(&:price) * number_of_stones)
+    self.material_base_cost + (self.price_of_stone * self.number_of_stones)
   end
 end

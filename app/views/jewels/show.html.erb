@@ -27,7 +27,11 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @jewel.price %>
+  <%= @jewel.material_base_cost + (@jewel.price_of_stone * @jewel.number_of_stones) %> CHF
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @jewel.price %> CHF
 </p>
 
 <p>
